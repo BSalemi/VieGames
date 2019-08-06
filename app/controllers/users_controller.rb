@@ -41,7 +41,16 @@ class UsersController < ApplicationController
             end 
     end 
 
+    def delete_page 
+        @user = current_user
+    end 
 
+    def delete
+        @user = current_user 
+        @user.delete
+        redirect_to '/'
+    end 
+    
     private 
 
     def user_params 

@@ -3,14 +3,19 @@ Rails.application.routes.draw do
 
   root 'users#home'
 
+
+  resources :users, only: [:index, :show, :edit, :create, :update, :delete]
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
 
   get '/signup' => 'users#new'
-  post '/signup' => 'users#create'
+ 
 
-  resources :users, only: [:index, :show, :new, :create, :edit, :update]
+  get '/delete' => 'users#delete_page'
+  delete '/delete' => 'users#delete'
+
 
 
 end

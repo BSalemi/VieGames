@@ -1,0 +1,12 @@
+<h1> Delete your Account </h1>
+<br>
+<br>
+<h4 class="warning">WARNING: Deleting your account will completely remove it from the database. 
+         This action cannot be undone.</h4>
+<br>
+<br>
+<h5><%= link_to "Return Home", user_path(@user) %></h5>
+<br>
+<%= form_tag(delete_path, method: :delete) do %>
+  <%= submit_tag "Delete Account" %>
+<% end %>
