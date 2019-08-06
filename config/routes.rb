@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:index, :show, :edit, :create, :update, :delete]
+  resources :companies, only: [:index, :show]
+  resources :games, only: [:index, :show]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

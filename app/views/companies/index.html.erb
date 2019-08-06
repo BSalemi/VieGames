@@ -1,0 +1,5 @@
+<h1> Video Game Companies </h1>
+
+<% @companies.each do |company| %>
+    <h3> <%= link_to company.name, company_path(company) %> </h3>
+    <% end %>
