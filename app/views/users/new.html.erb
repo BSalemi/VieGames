@@ -1,11 +1,9 @@
 <h1> Create an Account for Vie Games! </h1>
 
 <%= form_for(@user) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %></br>
-    <%= f.label :email %>
-    <%= f.text_field :email %></br>
-    <%= f.label :password %>
-    <%= f.password_field :password %></br>
+    Username: <%= f.text_field :username %></br>
+    Email: <%= f.text_field :email %></br>
+    Password: <%= f.password_field :password %></br>
+    Confirm Password: <%= f.password_field :password_confirmation %></br>
     <%= f.submit "Create Account" %>
     <% end %> 
