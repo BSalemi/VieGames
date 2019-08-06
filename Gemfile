@@ -5,6 +5,8 @@ ruby '2.6.1'
 
 gem 'nokogiri'
 
+gem 'omniauth-rails_csrf_protection'
+
 gem 'omniauth'
 
 gem 'omniauth-github'
