@@ -24,11 +24,21 @@ class UsersController < ApplicationController
     end
 
     def edit 
-
+        @user = current_user
+        redirect_to login_path unless logged_in?
     end 
 
     def update 
-
+        @user = current_user
+        @user.username = params[:user][:username]
+        @user.email = params[:user][:email]
+        @user.password = params[:user][:password]
+            if @user.valid? 
+               @user.save 
+               redirect_to user_path(@user)
+            else 
+                render :edit
+            end 
     end 
 
 
@@ -36,5 +46,13 @@ class UsersController < ApplicationController
 
     def user_params 
         params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    end 
+
+    def logged_in?
+        !!current_user
+    end 
+
+    def current_user 
+        @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end 
 end
