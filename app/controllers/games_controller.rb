@@ -5,16 +5,37 @@ class GamesController < ApplicationController
     end 
 
     def new 
-
+        @game = Game.new
+        @systems = System.all
+        @companies = Company.all
     end 
 
     def create 
-
+        @game = Game.new(game_params)
+        @system = System.find_by(id: @game.system_id)
+        @game.company_id = @system.company_id
+        if @game.valid? 
+            @game.save 
+            byebug
+            if params[:game][:user_game] == "true" 
+                user_game = UserGame.create(user_id: current_user.id, game_id: @game.id)
+                redirect_to games_path 
+            else 
+                redirect_to games_path
+            end
+        else 
+            render :new 
+        end 
     end 
-    
-    
+      
     def show 
         @game = Game.find(params[:id])
+    end 
+
+    private 
+
+    def game_params
+        params.require(:game).permit(:title, :content_rating, :system_id, :company_id)
     end 
 
 end

@@ -1,0 +1,35 @@
+<% if @game.errors.any? %>
+   <div id="error_explanation">
+      <h2> 
+         <%= pluralize(@game.errors.count, "error") %>
+         prohibited this user from being saved:
+      </h2>
+
+      <ul> 
+        <% @game.errors.full_messages.each do |msg| %>
+            <li> <%= msg %> </li>
+        <% end %>
+     </ul>
+    </div>
+    <% end %>
+
+<h1> Add a Game to Vie Games!</h1> 
+
+<%= form_for(@game) do |f| %> 
+    <h4>Title:</h4><%= f.text_field :title %> <br>
+    <h4>Select Content Rating:</h4>
+    Everyone: <%= f.radio_button(:content_rating, "Everyone")%>
+    Everyone 10 & Up: <%= f.radio_button(:content_rating, "Everyone 10 & Up")%>
+    Teen: <%= f.radio_button(:content_rating, "Teen")%>
+    Mature: <%= f.radio_button(:content_rating, "Mature")%>
+    <h4> Select a System: </h4> 
+    <%=f.collection_select(:system_id, System.all, :id, :name)%>
+    <h4> Own This Game?</h4> 
+    <label for="true"> True </label>
+    <input type="radio" name="game[user_game]" value= true>
+    <label for="false"> False </label>
+    <input type="radio" name="game[user_game]" value= false> <br><br> 
+
+    <%= f.submit %>
+    <% end %>
+

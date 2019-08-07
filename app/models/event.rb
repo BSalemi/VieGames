@@ -5,7 +5,7 @@ class Event < ApplicationRecord
     validates: (:prize, presence: => true)
     validates: (:host, presence: => true)
     validates: (:game_id, presence: => true)
-    validates: (:location, inclusion: { in: [In Person, Online]})
+    validates: (:location, presence: => true)
 
     belongs_to :game 
     has_many :user_events 

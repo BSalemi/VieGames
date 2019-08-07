@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   get '/signup' => 'users#new'
- 
-
   get '/delete' => 'users#delete_page'
   delete '/delete' => 'users#delete'
+
+  get '/add_game/:id' => 'user_games#add_game', as: "add_game"
 
 
 
