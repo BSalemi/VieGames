@@ -3,11 +3,24 @@ class EventsController < ApplicationController
     def index
     end 
 
-    def new 
+    def new
+        if params[:game_id]
+            @game_id = params[:game_id]
+        else
+            @games = Game.all
+        end
         @event = Event.new 
     end 
 
     def create
+        @event = Event.new(event_params)
+        if @event.valid?
+            @event.save 
+            user_event = UserEvent.create(game_id: params[:game_id], event_id: @event.id)
+            redirect_to event_path(@event)
+        else 
+            render :new 
+        end 
     end 
 
     def show

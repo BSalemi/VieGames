@@ -18,9 +18,9 @@ class GamesController < ApplicationController
             @game.save 
             if params[:game][:user_game] == "true" 
                 user_game = UserGame.create(user_id: current_user.id, game_id: @game.id)
-                redirect_to games_path 
+                redirect_to game_path(@game)
             else 
-                redirect_to games_path
+                redirect_to game_path(@game)
             end
         else 
             render :new 
