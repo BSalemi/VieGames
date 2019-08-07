@@ -29,7 +29,7 @@
     <input type="radio" name="game[user_game]" value= true>
     <label for="false"> False </label>
     <input type="radio" name="game[user_game]" value= false> <br><br> 
-
-    <%= f.submit %>
+    
+    <%= f.submit :onclick => "return confirm('Please confirm details are correct. You cannot edit or delete a game once added to the database.')" %>
     <% end %>
 

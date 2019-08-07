@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :create, :update, :delete]
   resources :companies, only: [:index, :show]
   resources :systems, only: [:index, :show]
-  resources :games, only: [:index, :show, :new, :create]
+  resources :games, only: [:index, :show, :new, :create] do 
+    resources :events, only: [:show]
+  end 
+
+  resources :events, only: [:index, :new, :create, :show, :edit, :update, :delete]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
