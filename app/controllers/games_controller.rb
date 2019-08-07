@@ -16,7 +16,6 @@ class GamesController < ApplicationController
         @game.company_id = @system.company_id
         if @game.valid? 
             @game.save 
-            byebug
             if params[:game][:user_game] == "true" 
                 user_game = UserGame.create(user_id: current_user.id, game_id: @game.id)
                 redirect_to games_path 
