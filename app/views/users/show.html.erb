@@ -1,6 +1,6 @@
 <h1> Welcome <%= @user.username %> ! </h1>
 
-
+<%= link_to "List of Games Available on Vie Games!", games_path %><br>
 <%= link_to "Edit your Account", edit_user_path %>
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
     <input type=submit value="Logout">

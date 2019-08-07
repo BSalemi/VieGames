@@ -1,1 +1,52 @@
-<h1> Game's List </h1>
+<h1> Vie Games' Games </h1>
+
+<br>
+<br>
+<div class="switchdrop"> 
+<button class="dropbtn_1">Nintendo Switch Games </button>
+
+<div class="switch"><% @games.each do |game| %>
+    <% if game.system.name == "Nintendo Switch" %>
+        <%= link_to game.title, game_path(game) %> 
+        <% end %>
+    <% end %></div> </div>
+<br>
+<br>
+<br>
+
+<div class="three_dsdrop"> 
+<button class="dropbtn_2">Nintendo 3DS Games </button>
+
+<div class="three_ds"><% @games.each do |game| %>
+    <% if game.system.name == "Nintendo 3DS" %>
+        <%= link_to game.title, game_path(game) %> 
+        <% end %>
+    <% end %></div></div>
+<br>
+<br>
+
+<div class="xbox_onedrop"> 
+<button class="dropbtn_3">Xbox One Games </button>
+
+<div class="xbox_one"><% @games.each do |game| %>
+    <% if game.system.name == "Xbox One" %>
+        <%= link_to game.title, game_path(game)%>
+        <% end %>
+    <% end %></div></div>
+<br>
+<br>
+<div class="ps_fourdrop">
+<button class="dropbtn_4"> Playstation 4 Games </button>
+
+<div class="ps_four"><% @games.each do |game| %>
+    <% if game.system.name == "Playstation 4" %>
+        <%= link_to game.title, game_path(game) %>
+        <% end %>
+    <% end %></div></div>
+    <br>
+    <br>
+   
+    <div class="create"><%= link_to "Add a Game to Vie Games!", new_game_path %></div> 
+     Go to Vie Games Events <br>
+    <div class="gohome"><%= link_to "Go Home", user_path(session[:user_id])%></div>
+   
