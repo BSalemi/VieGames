@@ -1,1 +1,16 @@
 <h1><%= @game.title %> </h1>
+<br>
+<% rating = @game.content_rating %>
+<h4> Content Rating:</h4> <%= link_to rating.downcase.gsub(" ","_")%> 
+<h4> Game System: </h4> <%= link_to @game.system.name %>
+<h4> Company: <%= link_to @game.company.name, company_path(@game.company)%></h4>
+<h4> Number of Users who play <%= @game.title %>:</h4><br><br>
+
+Add <%=@game.title%> to Your Collection <br> 
+
+
+Upcoming Events for <%= @game.title %> <br>
+
+Create an Event for <%=@game.title%> <br>
+
+<%= link_to "Return to the Games Index", games_path %>
