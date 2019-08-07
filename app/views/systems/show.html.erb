@@ -1,0 +1,8 @@
+<h1> <%= @system.name %> </h1> <br>
+
+<% @system.games.each do |game| %>
+    <li><%= link_to game.title, game_path(game) %> </li>
+<% end %> <br>
+
+<%= link_to "Return to Systems Page", systems_path %> <br><br>
+<%= link_to "Return Home", user_path(session[:user_id]) %>

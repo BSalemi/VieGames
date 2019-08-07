@@ -1,8 +1,7 @@
 class SystemsController < ApplicationController
 
     def index 
-        @systems = System.all 
-        @companies = Company.all 
+        @systems = System.all  
     end 
 
     def show 
