@@ -1,0 +1,7 @@
+<h1> <%= @formatted %> </h1>
+<div class="rating"><% @games.each do |game| %>
+    <h4><li><%= link_to game.title, game_path(game) %></li></h4>
+    <div class="system"><%= link_to game.system.name, system_path(game.system)%></h6></div>
+    <% end %> 
+    <br>
+    <%= link_to "Games Index", games_path %></div>

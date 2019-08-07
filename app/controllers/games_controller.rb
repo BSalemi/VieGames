@@ -31,6 +31,12 @@ class GamesController < ApplicationController
         @game = Game.find(params[:id])
     end 
 
+    def rating 
+        @formatted = params[:rating].split("_").map{|element| element.capitalize}.join(" ")
+        @games = Game.all.select{|game| game.content_rating == @formatted}
+    end 
+
+
     private 
 
     def game_params

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get '/add_game/:id' => 'user_games#add_game', as: "add_game"
 
+  get '/rating/:rating' => 'games#rating', as: "rating"
+
 
 
 end

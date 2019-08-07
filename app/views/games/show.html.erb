@@ -1,7 +1,7 @@
 <h1><%= @game.title %> </h1>
 <br>
 <% rating = @game.content_rating %>
-<h4> Content Rating:</h4> <%= link_to rating.downcase.gsub(" ","_")%> 
+<h4> Content Rating:</h4> <%= link_to rating, rating_path(rating)%> 
 <h4> Game System: </h4> <%= link_to @game.system.name, system_path(@game.system) %>
 <h4> Company:</h4> <%= link_to @game.company.name, company_path(@game.company)%>
 <h4> Number of Users who play <%= @game.title %>:</h4> <%= @game.users.count %><br><br>
