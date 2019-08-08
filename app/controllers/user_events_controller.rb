@@ -8,7 +8,8 @@ class UserEventsController < ApplicationController
 
     def delete_event 
         event = Event.find(params[:id])
-        user_event = UserEvent.where("user_id = current_user.id" && "event_id = event.id")
-        user_event.delete
+        user_event = UserEvent.find_by(user_id: current_user.id, event_id: event.id)
+        user_event.destroy
+        redirect_to user_path(current_user)
     end 
 end
