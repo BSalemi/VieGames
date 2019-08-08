@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    before_action :require_login, only: [:destroy]
 
     def new 
         @user = User.new
@@ -21,4 +22,13 @@ class SessionsController < ApplicationController
         session.delete :user_id
         redirect_to '/'
     end 
+
+    private 
+
+    def require_login
+        unless logged_in?
+            flash[:error] = "You must be logged in to access this section"
+            redirect_to login_path 
+          end
+    end
 end

@@ -1,0 +1,17 @@
+<h1>Upcoming <%=@game.title %> Events </h1>
+
+<h3> Online </h3>
+<% @events.each do |event| %>
+    <% if event.location == "Online"%>
+        <li><%= link_to event.date_time, event_path(event) %> </li>
+    <% end %>
+<% end %>
+    
+
+<h3> In Person</h3>
+
+<% @events.each do |event| %>
+    <% if event.location == "In Person"%>
+       <li> <%= link_to event.date_time, event_path(event) %> </li>
+    <% end %>
+<% end %>

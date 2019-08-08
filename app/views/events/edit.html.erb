@@ -1,0 +1,18 @@
+<h1>Edit the <%=@event.game.title%> Event</h1>
+
+<%= form_for(@event) do |f| %> 
+    <% if @game_id %>
+        <%= f.hidden_field(:game_id, value: @game_id) %>
+    <% else %>
+        <%= f.collection_select(:game_id, Game.all, :id, :title) %>
+    <% end %> <br>
+    When: <%= f.date_field :date %><br>
+    Number of Entrants: <%= f.number_field :max_num_entrants %><br>
+    Entrance Fee: <%= f.number_field :entrance_fee %><br>
+    Prize: <%= f.number_field :prize %><br>
+    Location: Online: <%= f.radio_button(:location, "Online")%>
+              In Person: <%= f.radio_button(:location, "In Person")%><br>
+    <%= f.label "Host?" %>
+    <%= f.check_box :host %> <br />
+    <%= f.submit "Edit Event" %>
+    <% end %>

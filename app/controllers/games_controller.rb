@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+    before_action :require_login
     
     def index 
         @games = Game.all 
@@ -43,4 +44,10 @@ class GamesController < ApplicationController
         params.require(:game).permit(:title, :content_rating, :system_id, :company_id)
     end 
 
+    def require_login
+        unless logged_in?
+            flash[:error] = "You must be logged in to access this section"
+            redirect_to login_path 
+          end
+    end
 end

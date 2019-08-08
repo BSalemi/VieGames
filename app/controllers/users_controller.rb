@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :require_login, only: [:show, :edit, :update, :delete_page, :delete]
 
     def home 
 
@@ -56,6 +57,13 @@ class UsersController < ApplicationController
     def user_params 
         params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end 
+
+    def require_login
+        unless logged_in?
+            flash[:error] = "You must be logged in to access this section"
+            redirect_to login_path 
+          end
+    end
 
     
 end

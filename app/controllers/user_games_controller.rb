@@ -1,4 +1,5 @@
 class UserGamesController < ApplicationController
+    before_action :require_login
 
     def add_game 
         game = Game.find(params[:id])
@@ -14,4 +15,13 @@ class UserGamesController < ApplicationController
         UserEvent.destroy(user_events.map(&:id))
         redirect_to user_path(current_user)
     end 
+
+    private 
+
+    def require_login
+        unless logged_in?
+            flash[:error] = "You must be logged in to access this section"
+            redirect_to login_path 
+          end
+    end
 end

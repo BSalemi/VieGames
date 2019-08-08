@@ -1,4 +1,5 @@
 class UserEventsController < ApplicationController
+    before_action :require_login
 
     def add_event 
         event = Event.find(params[:id])
@@ -12,4 +13,13 @@ class UserEventsController < ApplicationController
         user_event.destroy
         redirect_to user_path(current_user)
     end 
+
+    private
+    
+    def require_login
+        unless logged_in?
+            flash[:error] = "You must be logged in to access this section"
+            redirect_to login_path 
+          end
+    end
 end
