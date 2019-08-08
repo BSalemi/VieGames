@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :companies, only: [:index, :show]
   resources :systems, only: [:index, :show]
   resources :games, only: [:index, :show, :new, :create] do 
-    resources :events, only: [:show]
+    resources :events, only: [:index, :new, :create, :show]
   end 
 
   resources :events, only: [:index, :new, :create, :show, :edit, :update, :delete]
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   delete '/delete' => 'users#delete'
 
   get '/add_game/:id' => 'user_games#add_game', as: "add_game"
+
+  get '/add_event/:id' => 'user_events#add_event', as: "add_event"
 
   get '/rating/:rating' => 'games#rating', as: "rating"
 

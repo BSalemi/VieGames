@@ -18,7 +18,7 @@
 
 <%= form_for(@event) do |f| %> 
     <% if @game_id %>
-        <%= f.hidden_field :@game_id %>
+        <%= f.hidden_field(:game_id, value: @game_id) %>
     <% else %>
         <%= f.collection_select(:game_id, Game.all, :id, :title) %>
     <% end %> <br>
