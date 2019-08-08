@@ -6,7 +6,11 @@
 <h4> Company:</h4> <%= link_to @game.company.name, company_path(@game.company)%>
 <h4> Number of Users who play <%= @game.title %>:</h4> <%= @game.users.count %><br><br>
 
-<%= link_to "Add #{@game.title} to Your Collection", add_game_path(@game) %> <br> 
+<% if current_user.games.find{|game| game.id == @game.id} %>
+    <%= link_to "Remove #{@game.title} from Your Collection", delete_game_path(@game) %>
+<% else %>   
+    <%= link_to "Add #{@game.title} to Your Collection", add_game_path(@game) %> 
+<% end %> <br> 
 
 
 <%= link_to "Upcoming Events for #{@game.title}", game_events_path(@game)%> <br>

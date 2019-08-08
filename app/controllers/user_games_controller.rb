@@ -5,4 +5,10 @@ class UserGamesController < ApplicationController
         user_game = UserGame.create(user_id: current_user.id, game_id: game.id)
         redirect_to user_path(current_user)
     end 
+
+    def delete_game 
+        game = Game.find(params[:id])
+        user_game = UserGame.where("user_id = current_user.id" && "game_id = game.id")
+        user_game.delete
+    end 
 end

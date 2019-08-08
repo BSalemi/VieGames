@@ -1,1 +1,14 @@
-<h1> <%= @event.game.title %> </h1>
+<h1> <%= @event.game.title %> Tournament </h1>
+
+<h4>When:</h4><%= @event.date_time %>
+<h4>Location:</h4> <%= @event.location %>
+<h4>Maximum Number of Entrants:</h4> <%= @event.max_num_entrants %>
+<h4>Number of Participants:</h4> <% @event.users.count %>
+<h4>Entrance Fee:</h4> $<%= @event.entrance_fee %>
+<h4>Prize Money: </h4> $<%= @event.prize %> </br></br>
+
+<% if current_user.events.find{|event| event.id == @event.id} %>
+    <%= link_to "Remove this Tournament from your Events", delete_event_path(@event)%>
+<% else %>
+    <%= link_to "Join this Tournament", add_event_path(@event) %>
+<% end %>    

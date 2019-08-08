@@ -33,4 +33,8 @@ class Event < ApplicationRecord
           errors.add(:date, "can't be in the past")
         end
     end    
+
+    def date_time
+        self.date.strftime('%B %d, %Y')
+    end
 end

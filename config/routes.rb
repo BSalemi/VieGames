@@ -22,8 +22,10 @@ Rails.application.routes.draw do
   delete '/delete' => 'users#delete'
 
   get '/add_game/:id' => 'user_games#add_game', as: "add_game"
+  get '/delete_game/:id' => 'user_games#delete_game', as: "delete_game"
 
   get '/add_event/:id' => 'user_events#add_event', as: "add_event"
+  get '/delete_event/:id' => 'user_events#delete_event', as: "delete_event"
 
   get '/rating/:rating' => 'games#rating', as: "rating"
 
