@@ -1,0 +1,15 @@
+<h1> Upcoming Events </h1>
+
+<h3> Online Events </h3>
+    <% Event.online.each do |event| %>
+        <li> <%= event.date_time %>
+        <%= link_to event.game.title, event_path(event) %></li>
+        <% end %>
+
+
+<h3> In Person Events </h3>
+<% Event.in_person.each do |event| %>
+    <li> <%= event.date_time %>
+    <%= link_to event.game.title, event_path(event) %></li>
+    <% end %>
+

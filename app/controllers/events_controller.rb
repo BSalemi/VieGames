@@ -1,6 +1,13 @@
 class EventsController < ApplicationController
 
     def index
+        if !params[:game_id]
+           @events = Event.all 
+        else 
+            @game_id = params[:game_id]
+            @events = Event.all.select {|event|event.game_id == @game_id}
+            render :game_event.index
+        end 
     end 
 
     def new

@@ -1,20 +1,23 @@
 class Event < ApplicationRecord
+    scope :online, -> { where(location: "Online") }
+    scope :in_person, -> { where(location: "In Person")}
+
     validate :event_date_cannot_be_in_the_past
     
     validates(:max_num_entrants, numericality: {
         only_integer: true,
         greater_than_or_equal_to: 3
-    }
+      }
     )
     validates(:entrance_fee, numericality: {
         only_integer: true,
         greater_than_or_equal_to: 0
-    }
+      }
     )
     validates(:prize,  numericality: {
         only_integer: true,
         greater_than_or_equal_to: 0
-    }
+      }
     )
     validates(:game_id, :presence => true)
     validates :game_id, uniqueness: {

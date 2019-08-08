@@ -15,6 +15,8 @@
 
 <%= link_to "Upcoming Events for #{@game.title}", game_events_path(@game)%> <br>
 
-<%= link_to "Create an Event for #{@game.title}", new_game_event_path(@game)%> <br>
+<% if current_user.games.find{|game| game.id == @game.id} %>
+    <%= link_to "Create an Event for #{@game.title}", new_game_event_path(@game)%> <br>
+<% end %>
 
 <%= link_to "Return to the Games Index", games_path %>

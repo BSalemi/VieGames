@@ -11,4 +11,7 @@
     <%= link_to "Remove this Tournament from your Events", delete_event_path(@event)%>
 <% else %>
     <%= link_to "Join this Tournament", add_event_path(@event) %>
-<% end %>    
+<% end %> </br></br>
+
+<%= link_to "Upcoming Events", events_path %>
+<%= link_to "Return Home", user_path(current_user) %>
