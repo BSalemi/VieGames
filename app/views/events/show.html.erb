@@ -1,4 +1,4 @@
-<h1> <%= @event.game.title %> Tournament </h1>
+<h1> <%= link_to @event.game.title, game_path(@event.game) %> Tournament </h1>
 
 <b>When:</b><%= @event.date_time %></br></br>    
 <b>Location:</b> <%= @event.location %></br></br>
@@ -9,10 +9,10 @@
 <b>Status: </b> <%= @event.status %> </br></br>
 
 <% if current_user.events.find{|event| event.id == @event.id} %>
-    <%= link_to "Remove this Tournament from your Events", delete_event_path(@event)%>
-<% else %>
-    <%= link_to "Join this Tournament", add_event_path(@event) %>
-<% end %> </br>
+    <%= link_to "Remove this Tournament from your Events", delete_event_path(@event)%><br>
+<% elsif !current_user.events.find{|event| event.id == @event.id} && @event.status == "Open"%>
+    <%= link_to "Join this Tournament", add_event_path(@event) %><br>
+<% end %> 
 
 <% if @event.host == true %>
 <%= link_to "Edit this Event", edit_event_path(@event)%>

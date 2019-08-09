@@ -1,22 +1,22 @@
 <h1><%= @game.title %> </h1>
-<br>
-<% rating = @game.content_rating %>
-<h4> Content Rating:</h4> <%= link_to rating, rating_path(rating)%> 
+
+<% rating = @game.content_rating.downcase.gsub(" ","_") %>
+<h4> Content Rating:</h4> <%= link_to @game.content_rating, rating_path(rating)%> 
 <h4> Game System: </h4> <%= link_to @game.system.name, system_path(@game.system) %>
 <h4> Company:</h4> <%= link_to @game.company.name, company_path(@game.company)%>
 <h4> Number of Users who play <%= @game.title %>:</h4> <%= @game.users.count %><br><br>
 
 <% if current_user.games.find{|game| game.id == @game.id} %>
-    <%= link_to "Remove #{@game.title} from Your Collection", delete_game_path(@game) %>
+    <%= link_to "Remove #{@game.title} from Your Collection", delete_game_path(@game) %><br>
 <% else %>   
-    <%= link_to "Add #{@game.title} to Your Collection", add_game_path(@game) %> 
+    <%= link_to "Add #{@game.title} to Your Collection", add_game_path(@game) %> <br>
 <% end %> <br> 
 
 
-<%= link_to "Upcoming Events for #{@game.title}", game_events_path(@game)%> <br>
+<%= link_to "Upcoming Events for #{@game.title}", game_events_path(@game)%> <br><br>
 
 <% if current_user.games.find{|game| game.id == @game.id} %>
     <%= link_to "Create an Event for #{@game.title}", new_game_event_path(@game)%> <br>
-<% end %>
+<% end %><br>
 
 <%= link_to "Return to the Games Index", games_path %>
