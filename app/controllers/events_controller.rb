@@ -27,7 +27,12 @@ class EventsController < ApplicationController
         if @event.valid?
             @event.save 
             user_event = UserEvent.create(user_id: current_user.id, event_id: @event.id)
-            redirect_to event_path(@event)
+            if current_user.games.find{|game| game.id == @event.game_id}
+                redirect_to event_path(@event)
+            else
+                user_game = UserGame.create(user_id: current_user.id, game_id: @event.game_id)
+                redirect_to event_path(@event) 
+            end 
         else 
             render :new 
         end 
