@@ -2,14 +2,18 @@
 
 <h3> Online Events </h3>
     <% Event.online.each do |event| %>
+        <% if event.status == "Open" && event.upcoming %>
         <li> <%= event.date_time %>
         <%= link_to event.game.title, event_path(event) %></li>
+        <% end %>
         <% end %>
 
 
 <h3> In Person Events </h3>
 <% Event.in_person.each do |event| %>
+    <% if event.status == "Open" && event.upcoming %>
     <li> <%= event.date_time %>
     <%= link_to event.game.title, event_path(event) %></li>
+    <% end %>
     <% end %>
 

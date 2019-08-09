@@ -1,11 +1,12 @@
 <h1> <%= @event.game.title %> Tournament </h1>
 
-<h4>When:</h4><%= @event.date_time %>
-<h4>Location:</h4> <%= @event.location %>
-<h4>Maximum Number of Entrants:</h4> <%= @event.max_num_entrants %>
-<h4>Number of Participants:</h4> <%= @event.users.count %>
-<h4>Entrance Fee:</h4> $<%= @event.entrance_fee %>
-<h4>Prize Money: </h4> $<%= @event.prize %> </br></br>
+<b>When:</b><%= @event.date_time %></br></br>    
+<b>Location:</b> <%= @event.location %></br></br>
+<b>Maximum Number of Entrants:</b> <%= @event.max_num_entrants %></br></br>
+<b>Number of Participants:</b> <%= @event.users.count %></br></br>
+<b>Entrance Fee:</b> $<%= @event.entrance_fee %></br></br>
+<b>Prize Money: </b> $<%= @event.prize %></br></br>
+<b>Status: </b> <%= @event.status %> </br></br>
 
 <% if current_user.events.find{|event| event.id == @event.id} %>
     <%= link_to "Remove this Tournament from your Events", delete_event_path(@event)%>
@@ -17,5 +18,5 @@
 <%= link_to "Edit this Event", edit_event_path(@event)%>
 <% end %></br>
 
-<%= link_to "Upcoming Events", events_path %></br>
+<%= link_to "Upcoming Events", events_path %></br></br>
 <%= link_to "Return Home", user_path(current_user) %>

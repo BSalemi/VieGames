@@ -40,4 +40,16 @@ class Event < ApplicationRecord
     def date_time
         self.date.strftime('%B %d, %Y')
     end
+
+    def status 
+        if self.users.count < self.max_num_entrants 
+            return "Open"
+        else 
+            return "Closed"
+        end 
+    end 
+
+    def upcoming
+        self.date >= Date.today 
+    end 
 end
