@@ -54,7 +54,7 @@ class EventsController < ApplicationController
         @event.entrance_fee = params[:event][:entrance_fee]
         @event.prize = params[:event][:prize]
         @event.max_num_entrants = params[:event][:max_num_entrants]
-        @event.host = params[:event][:host]
+        @event.host_id = params[:event][:host_id]
         @event.game_id = params[:event][:game_id]
             
         if @event.valid?
@@ -78,7 +78,7 @@ class EventsController < ApplicationController
     private 
 
     def event_params 
-        params.require(:event).permit(:date, :location, :entrance_fee, :prize, :host, :max_num_entrants, :game_id)
+        params.require(:event).permit(:date, :location, :entrance_fee, :prize, :host_id, :max_num_entrants, :game_id)
     end 
 
     def require_login

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_130043) do
+ActiveRecord::Schema.define(version: 2019_08_09_204242) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(version: 2019_08_06_130043) do
     t.string "location"
     t.integer "entrance_fee"
     t.integer "prize"
-    t.boolean "host"
     t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "max_num_entrants"
+    t.integer "host_id"
+    t.index ["host_id"], name: "index_events_on_host_id"
   end
 
   create_table "games", force: :cascade do |t|

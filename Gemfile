@@ -5,13 +5,12 @@ ruby '2.6.1'
 
 gem 'nokogiri'
 
-gem 'omniauth-rails_csrf_protection'
+
 
 gem 'omniauth'
-
 gem 'omniauth-github'
-
 gem 'dotenv-rails'
+gem 'thin'
 
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

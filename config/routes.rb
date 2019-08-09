@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   get '/rating/:rating' => 'games#rating', as: "rating"
 
+  get '/auth/github/callback', to: 'users#create'
 
 
 end

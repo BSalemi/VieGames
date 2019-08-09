@@ -10,13 +10,24 @@ class UsersController < ApplicationController
     end 
 
     def create 
-        @user = User.new(user_params)
-        if @user.valid?
-           @user.save
-           session[:user_id] = @user.id 
-           redirect_to user_path(@user)
+        if params[:user]
+             @user = User.new(user_params)
+                if 
+                    @user.valid?
+                    @user.save
+                    session[:user_id] = @user.id 
+                    redirect_to user_path(@user)
+                else 
+                render :new 
+                end 
         else 
-            render :new 
+            @user = User.find_or_create_by(uid: auth['uid']) do |u|
+                u.name = auth['info']['name']
+                u.email = auth['info']['email']
+                u.image = auth['info']['image']
+            end 
+            session[:user_id] = @user.id 
+            redirect_to user_path(@user)
         end
     end 
 
@@ -63,6 +74,10 @@ class UsersController < ApplicationController
             flash[:error] = "You must be logged in to access this section"
             redirect_to login_path 
           end
+    end
+
+    def auth
+        request.env['omniauth.auth']
     end
 
     
