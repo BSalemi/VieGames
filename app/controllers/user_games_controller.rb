@@ -7,6 +7,14 @@ class UserGamesController < ApplicationController
         redirect_to user_path(current_user)
     end 
 
+    def add_rating
+        user_game = UserGame.find_by(id: params[:id])
+        byebug
+        user_game.star_rating = params[:star_rating]
+        user_game.save
+        redirect_to game_path(game)
+    end 
+
     def delete_game 
         game = Game.find(params[:id])
         user_events = current_user.user_events.select {|user_event| user_event.event.game_id == game.id}

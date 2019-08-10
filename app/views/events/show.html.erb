@@ -8,15 +8,17 @@
 <b>Prize Money: </b> $<%= @event.prize %></br></br>
 <b>Status: </b> <%= @event.status %> </br></br>
 
+
+
 <% if current_user.events.find{|event| event.id == @event.id} %>
     <%= link_to "Remove this Tournament from your Events", delete_event_path(@event)%><br>
 <% elsif !current_user.events.find{|event| event.id == @event.id} && @event.status == "Open"%>
     <%= link_to "Join this Tournament", add_event_path(@event) %><br>
 <% end %> 
 
-<% if @event.host == true %>
+<% if @event.host_id == current_user.id %>
 <%= link_to "Edit this Event", edit_event_path(@event)%>
 <% end %></br>
 
 <%= link_to "Upcoming Events", events_path %></br></br>
-<%= link_to "Return Home", user_path(current_user) %>
+

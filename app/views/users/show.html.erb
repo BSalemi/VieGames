@@ -58,10 +58,3 @@
                <% end %>
                <% end %></br></br>
 
-<%= link_to "List of Games Available on Vie Games!", games_path %><br><br>
-<%= link_to "List of Vie Games Events!", events_path %><br><br>
-<%= link_to "Edit your Account", edit_user_path %> <br> <br>
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-    <input type=submit value="Logout">
-    <% end %>
-

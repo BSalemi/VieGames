@@ -53,4 +53,6 @@ class Event < ApplicationRecord
     def upcoming
         self.date >= Date.today 
     end 
+
+
 end

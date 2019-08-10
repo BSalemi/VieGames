@@ -4,7 +4,9 @@
 <h4> Content Rating:</h4> <%= link_to @game.content_rating, rating_path(rating)%> 
 <h4> Game System: </h4> <%= link_to @game.system.name, system_path(@game.system) %>
 <h4> Company:</h4> <%= link_to @game.company.name, company_path(@game.company)%>
-<h4> Number of Users who play <%= @game.title %>:</h4> <%= @game.users.count %><br><br>
+<h4> Number of Users who play <%= @game.title %>:</h4> <%= @game.users.count %><br>
+
+
 
 <% if current_user.games.find{|game| game.id == @game.id} %>
     <%= link_to "Remove #{@game.title} from Your Collection", delete_game_path(@game) %><br>
@@ -12,11 +14,21 @@
     <%= link_to "Add #{@game.title} to Your Collection", add_game_path(@game) %> <br>
 <% end %> <br> 
 
+<% if current_user.games.find{|game| game.id == @game.id} %>
+<% user_game = UserGame.find_by(game_id: @game.id, user_id: current_user.id) %>
+    <%= form_for(:user_game, :url => add_rating_path) do |f| %>
+        <h4> Add a Rating for <%= @game.title %> </h4>
+        1 <%= f.radio_button(:star_rating, 1)%>
+        2 <%= f.radio_button(:star_rating, 2)%>
+        3 <%= f.radio_button(:star_rating, 3) %>
+        4 <%= f.radio_button(:star_rating, 4) %>
+        5 <%= f.radio_button(:star_rating, 5) %></br>
+        <%= f.submit "Add Rating" %>
+    <% end %>
+<% end %></br>
 
 <%= link_to "Upcoming Events for #{@game.title}", game_events_path(@game)%> <br><br>
 
 <% if current_user.games.find{|game| game.id == @game.id} %>
     <%= link_to "Create an Event for #{@game.title}", new_game_event_path(@game)%> <br>
 <% end %><br>
-
-<%= link_to "Return to the Games Index", games_path %>
