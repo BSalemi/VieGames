@@ -54,5 +54,8 @@ class Event < ApplicationRecord
         self.date >= Date.today 
     end 
 
-
+   def host_username
+        self.host.username
+   end
+    
 end

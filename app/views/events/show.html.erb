@@ -7,6 +7,9 @@
 <b>Entrance Fee:</b> $<%= @event.entrance_fee %></br></br>
 <b>Prize Money: </b> $<%= @event.prize %></br></br>
 <b>Status: </b> <%= @event.status %> </br></br>
+<% if @event.host %>
+<b>Hosted by:</b><%= @event.host_username %></br></br>
+<% end %>
 
 
 

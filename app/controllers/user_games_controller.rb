@@ -8,11 +8,11 @@ class UserGamesController < ApplicationController
     end 
 
     def add_rating
-        user_game = UserGame.find_by(id: params[:id])
-        byebug
-        user_game.star_rating = params[:star_rating]
+        game = Game.find_by(id: params[:id])
+        user_game = UserGame.find_by(game_id: game.id, user_id: current_user.id)
+        user_game.star_rating = params[:user_game][:star_rating]
         user_game.save
-        redirect_to game_path(game)
+        redirect_to game_path(game)        
     end 
 
     def delete_game 
