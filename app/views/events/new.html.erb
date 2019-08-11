@@ -14,21 +14,21 @@
     <% end %>
 
 
-<h1> Create an Event </h1>
+<h1> Create an Event </h1><br>
 
 <%= form_for(@event) do |f| %> 
     <% if @game_id %>
         <%= f.hidden_field(:game_id, value: @game_id) %>
     <% else %>
-        <%= f.collection_select(:game_id, Game.all, :id, :title) %>
+       <b>Game:</b> <%= f.collection_select(:game_id, Game.all, :id, :title) %>
     <% end %> <br>
-    When: <%= f.date_field :date %><br>
-    Number of Entrants: <%= f.number_field :max_num_entrants %><br>
-    Entrance Fee: <%= f.number_field :entrance_fee %><br>
-    Prize: <%= f.number_field :prize %><br>
-    Location: Online: <%= f.radio_button(:location, "Online")%>
+    <b>When:</b> <%= f.date_field :date %><br>
+    <b>Number of Entrants:</b> <%= f.number_field :max_num_entrants %><br>
+    <b>Entrance Fee:</b> <%= f.number_field :entrance_fee %><br>
+    <b>Prize:</b> <%= f.number_field :prize %><br>
+    <b>Location:</b> Online: <%= f.radio_button(:location, "Online")%>
               In Person: <%= f.radio_button(:location, "In Person")%><br>
-    <%= f.label "Host?" %>
+    <b><%= f.label "Host?" %></b>
     <%= f.check_box :host_id %> <br />
     <%= f.submit "Create Event" %>
     <% end %>

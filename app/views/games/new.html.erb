@@ -16,19 +16,19 @@
 <h1> Add a Game to Vie Games!</h1> 
 
 <%= form_for(@game) do |f| %> 
-    <h4>Title:</h4><%= f.text_field :title %> <br>
-    <h4>Select Content Rating:</h4>
+    <h6><b>Title:</b></h6><%= f.text_field :title %> </br></br>
+    <h6><b>Select Content Rating:</b></h6>
     Everyone: <%= f.radio_button(:content_rating, "Everyone")%>
     Everyone 10 & Up: <%= f.radio_button(:content_rating, "Everyone 10 & Up")%>
     Teen: <%= f.radio_button(:content_rating, "Teen")%>
-    Mature: <%= f.radio_button(:content_rating, "Mature")%>
-    <h4> Select a System: </h4> 
-    <%=f.collection_select(:system_id, System.all, :id, :name)%>
-    <h4> Own This Game?</h4> 
+    Mature: <%= f.radio_button(:content_rating, "Mature")%></br></br>
+    <h6> <b>Select a System: </b></h6> 
+    <%=f.collection_select(:system_id, System.all, :id, :name)%></br></br>
+    <h6><b> Own This Game?</b></h6> 
     <label for="true"> True </label>
     <input type="radio" name="game[user_game]" value= true>
     <label for="false"> False </label>
-    <input type="radio" name="game[user_game]" value= false> <br><br> 
+    <input type="radio" name="game[user_game]" value= false></br></br>
     
     <%= f.submit :onclick => "return confirm('Please confirm details are correct. You cannot edit or delete a game once added to the database.')" %>
     <% end %>

@@ -188,6 +188,7 @@
 .switchdrop {
   position: relative;
   display: inline-block;
+  left: 1px;
 }
 
 
@@ -233,7 +234,7 @@
 }
 
 .three_dsdrop {
-  left: 267px;
+  left: 245px;
   top: -88px;
   position: relative;
   display: inline-block;
@@ -280,7 +281,7 @@
 }
 
 .xbox_onedrop {
-  left: 520px;
+  left: 475px;
   top: -158px;
   position: relative;
   display: inline-block;
@@ -328,7 +329,7 @@
 }
 
 .ps_fourdrop {
-  left: 736px;
+  left: 672px;
   top: -228px;
   position: relative;
   display: inline-block;
@@ -370,4 +371,45 @@
 
 .system{
   font-size: 75%
+}
+
+.create_event{
+  background-color: lightgrey;
+  border: black solid 1px;
+  display: inline-block;
+
+}
+
+.create_event a{
+  color: black;
+}
+
+.create_game{
+  background-color: lightgrey;
+  border: black solid 1px;
+  display: inline-block;
+}
+
+.create_game a{
+  color: black;
+}
+
+.collect_game {
+  background-color: lightgrey;
+  border: black solid 1px;
+  display: inline-block;
+}
+
+.collect_game a{
+  color: black;
+}
+
+.upcoming_event{
+  background-color: lightgrey;
+  border: black solid 1px;
+  display: inline-block;
+}
+
+.upcoming_event a{
+  color: black;
 }

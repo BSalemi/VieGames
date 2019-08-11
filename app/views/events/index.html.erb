@@ -1,6 +1,6 @@
 <h1> Upcoming Events </h1>
 
-<h3> Online Events </h3>
+<h3> <b>Online Events </b></h3>
     <% Event.online.each do |event| %>
         <% if event.upcoming %>
         <li> <%= event.date_time %>
@@ -9,7 +9,7 @@
         <% end %>
 
 
-<h3> In Person Events </h3>
+<h3><b> In Person Events</b> </h3>
 <% Event.in_person.each do |event| %>
     <% if event.upcoming %>
     <li> <%= event.date_time %>
@@ -18,4 +18,4 @@
     <% end %>
 <br>
 <br>
-<%= link_to "Create an Event!", new_event_path %>
+<h5><div class="create_event"><%= link_to "Create an Event!", new_event_path %></h5></div>
