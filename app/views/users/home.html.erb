@@ -1,3 +1,14 @@
 <h1> Welcome to Vie Games!</h1>
+<% if current_user %>
+<div class="motto"<h3><i> The premier app for competitive gamers.</i></h3></div></br>
 
-Please <%= link_to "Sign Up", signup_path %>  or <%= link_to "Log In", login_path %> to continue
+<h5>Here at <b>Vie Games</b>, our users don't just play games for fun, they play games to win.</h5>
+
+    <li>• Search your favorite games in our database and see their upcoming events.</li>
+    <li>• Don't see the game or event you're looking for? No problem. Just add it to the database or create an event yourself.</li>
+    <li>• Compete against other players to win prizes and bragging rights.</li>
+
+
+<% else %>
+Please <%= link_to "Sign Up", signup_path %>  or <%= link_to "Log In", login_path %> to continue.
+<% end %>

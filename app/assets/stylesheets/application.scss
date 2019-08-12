@@ -152,7 +152,8 @@
   padding: 5px;
   width: 835px;
   border: 2px dashed red;
-  text-align: center
+  text-align: center;
+  font-size: 100%
 }
 
 .warning_1{
@@ -160,6 +161,7 @@
   padding: 5px;
   width: 700px;
   border: 2px dashed red;
+  font-size: 100%
 }
 
 .create {
@@ -370,7 +372,7 @@
 }
 
 .system{
-  font-size: 75%
+  font-size: 85%
 }
 
 .create_event{
@@ -412,4 +414,23 @@
 
 .upcoming_event a{
   color: black;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+.delete_account{
+  background-color: lightgrey;
+  border: black solid 1px;
+  display: inline-block;
+}
+
+.delete_account a{
+  color: black;
+}
+
+.motto {
+  text-align: center;
 }
