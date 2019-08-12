@@ -2,6 +2,11 @@ class Event < ApplicationRecord
     scope :online, -> { where(location: "Online") }
     scope :in_person, -> { where(location: "In Person")}
 
+    belongs_to :game 
+    has_many :user_events 
+    has_many :users, through: :user_events
+    belongs_to :host, class_name: "User"
+
     validate :event_date_cannot_be_in_the_past
     
     validates(:max_num_entrants, numericality: {
@@ -27,10 +32,7 @@ class Event < ApplicationRecord
     
     validates(:location, :presence => true)
 
-    belongs_to :game 
-    has_many :user_events 
-    has_many :users, through: :user_events
-    belongs_to :host, class_name: "User"
+ 
 
     def event_date_cannot_be_in_the_past
         if date.present? && date < Date.today
