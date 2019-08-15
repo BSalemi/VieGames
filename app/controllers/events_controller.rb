@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
     before_action :require_login
+    before_action :find_event, only: [:show, :edit, :update, :delete]
 
     def index
         if !params[:game_id]
@@ -23,7 +24,7 @@ class EventsController < ApplicationController
 
     def create
         @event = Event.new(event_params)
-        byebug
+        
         if @event.valid?
             if @event.host_id == 1 
                @event.host_id = current_user.id 
@@ -42,16 +43,13 @@ class EventsController < ApplicationController
     end 
 
     def show
-        @event = Event.find(params[:id])
     end 
 
     def edit 
-        @event = Event.find(params[:id])
         render :access_denied unless @event.host == true 
     end 
 
     def update
-        @event = Event.find(params[:id])
         @event.date = params[:event][:date]
         @event.location = params[:event][:location]
         @event.entrance_fee = params[:event][:entrance_fee]
@@ -69,7 +67,6 @@ class EventsController < ApplicationController
      end 
 
     def delete
-      @event = Event.find(params[:id])
         if @event.host 
            @event.delete
            redirect_to events_path
@@ -90,4 +87,8 @@ class EventsController < ApplicationController
             redirect_to login_path 
           end
     end
+
+    def find_event 
+        @event = Event.find(params[:id])
+    end 
 end
