@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'users#home'
 
 
-  resources :users, only: [:index, :show, :edit, :create, :update, :delete]
+  resources :users, except: [:new]
   resources :companies, only: [:index, :show]
   resources :systems, only: [:index, :show]
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :events, only: [:index, :new, :create, :show]
   end 
 
-  resources :events, only: [:index, :new, :create, :show, :edit, :update, :delete]
+  resources :events
   resources :user_games, only: [:edit]
 
   get '/login' => 'sessions#new'

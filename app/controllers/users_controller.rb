@@ -18,7 +18,7 @@ class UsersController < ApplicationController
                     session[:user_id] = @user.id 
                     redirect_to user_path(@user)
                 else 
-                render :new 
+                    render :new 
                 end 
         else 
             @user = User.find_or_create_by(uid: auth['uid']) do |u|

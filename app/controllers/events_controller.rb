@@ -13,18 +13,21 @@ class EventsController < ApplicationController
     end 
 
     def new
-    @event = Event.new
+        @event = Event.new
         if params[:game_id]
             @game_id = params[:game_id]
         else
             @games = Game.all
         end
-        @event = Event.new 
     end 
 
     def create
         @event = Event.new(event_params)
+        byebug
         if @event.valid?
+            if @event.host_id == 1 
+               @event.host_id = current_user.id 
+            end 
             @event.save 
             user_event = UserEvent.create(user_id: current_user.id, event_id: @event.id)
             if current_user.games.find{|game| game.id == @event.game_id}

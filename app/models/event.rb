@@ -5,7 +5,7 @@ class Event < ApplicationRecord
     belongs_to :game 
     has_many :user_events 
     has_many :users, through: :user_events
-    belongs_to :host, class_name: "User"
+    belongs_to :host, class_name: "User", optional: true
 
     validate :event_date_cannot_be_in_the_past
     
