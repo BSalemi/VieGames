@@ -19,16 +19,11 @@ Upon launching the application, the user can navigate to localhost:PortNumber/ t
 Following a successful user sign-up or log-in, the user will arrive at their profile page.
 
 From here, the user may:
-
-  -Search video games on the database and add the games they own to their profile.
-  
-  -Rate any game they own.
-  
-  -Add new games to the database.
-  
-  -Search upcoming events for their favorite games and add them to their profile.
-  
-  -Create and host their own events.
+  - Search video games on the database and add the games they own to their profile.
+  - Rate any game they own. 
+  - Add new games to the database.
+  - Search upcoming events for their favorite games and add them to their profile.
+  - Create and host their own events.
 
 
 ## Contributing 
