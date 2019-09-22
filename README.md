@@ -18,6 +18,8 @@ Upon launching the application, the user can navigate to localhost:PortNumber/ t
 
 Following a successful user sign-up or log-in, the user will arrive at their profile page.
 
+[![Vie Games Screen Grab](https://i.imgur.com/vAkzqNE.png)](https://vimeo.com/353279251)
+
 From here, the user may:
   - Search video games on the database and add the games they own to their profile.
   - Rate any game they own. 
@@ -34,4 +36,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/BSalem
 
 The system is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-[![Vie Games Screen Grab](https://i.imgur.com/vAkzqNE.png)](https://vimeo.com/353279251)
+
