@@ -1,7 +1,5 @@
 # Vie Games 
 
-Flatiron School Ruby on Rails Project - Vie Games is a rails application which provides a database of video games and gaming events and tournaments. Users can add games and events to their profiles as well as create new games and events to be added to the database. 
-
 ## Installation 
 
 After cloning the repo, install the dependencies by executing the below command in your terminal:
