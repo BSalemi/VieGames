@@ -1,6 +1,6 @@
 # Vie Games 
 
-[Blog post](https://bsalemi.github.io/rails_portfolio_project_and_using_scope_methods)
+[Blog Post](https://bsalemi.github.io/rails_portfolio_project_and_using_scope_methods)
 
 ## Installation 
 
