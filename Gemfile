@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
-gem 'nokogiri'
+gem 'nokogiri', ">= 1.10.4"
 
 gem 'bootstrap', '~> 4.3.1'
 
