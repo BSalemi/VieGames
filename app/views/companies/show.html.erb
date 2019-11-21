@@ -1,8 +1,9 @@
 <h1> <%= @company.name %> </h1>
-<% @games.each do |game| %>
-  <% if game.company.name == @company.name %>
-    <h5><li><%= link_to game.title, game_path(game) %> </li></h5>
+
+  <% @games.each do |game| %>
+    <% if game.company.name == @company.name %>
+      <h6><li><%= link_to game.title, game_path(game) %> </li></h6>
+    <% end %>
   <% end %>
-<% end %>
 <br>
 
