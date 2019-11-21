@@ -4,13 +4,21 @@
 
 
 
+SWITCH_IMG = "https://images.nintendolife.com/news/2019/01/here_are_the_top_ten_best-selling_nintendo_switch_games_of_2018_in_the_us/large.jpg"
+
+THREE_DS_IMG = "https://static-ca.ebgames.ca/images/products/702741/3max.jpg"
+
+XBOX_ONE_IMG = "https://cdn.mos.cms.futurecdn.net/VDpd6g8cLoFCiHc6gfowTh-1920-80.jpg"
+
+PS4_IMG = "https://cdn.mos.cms.futurecdn.net/2P4QiZubHpgmGsujBa5RU5-1920-80.jpg"
+
 NINTENDO = Company.create(name: "Nintendo")
 MICROSOFT = Company.create(name: "Microsoft")
 SONY = Company.create(name: "Sony")
-SWITCH = System.create(name: "Nintendo Switch", company: NINTENDO)
-THREE_DS = System.create(name: "Nintendo 3DS", company: NINTENDO)
-XBOX_ONE = System.create(name: "Xbox One", company: MICROSOFT)
-PS4 = System.create(name: "Playstation 4", company: SONY)
+SWITCH = System.create(name: "Nintendo Switch", company: NINTENDO, image: SWITCH_IMG)
+THREE_DS = System.create(name: "Nintendo 3DS", company: NINTENDO, image: THREE_DS_IMG)
+XBOX_ONE = System.create(name: "Xbox One", company: MICROSOFT, image: XBOX_ONE_IMG)
+PS4 = System.create(name: "Playstation 4", company: SONY, image: PS4_IMG)
 
 
 call_of_duty = Game.create(title: "Call of Duty: Modern Warfare", content_rating: "Mature", company: MICROSOFT, system: XBOX_ONE);
