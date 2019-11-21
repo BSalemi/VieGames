@@ -1,6 +1,13 @@
 <h1> <%= @system.name %> </h1> <br>
 
-<% @system.games.each do |game| %>
-    <li><%= link_to game.title, game_path(game) %> </li>
-<% end %> <br>
+<div class="system_attributes">
+    <div class="system_games">
+        <% @system.games.each do |game| %>
+            <li><%= link_to game.title, game_path(game) %> </li>
+        <% end %> <br>
+    </div>
+    <div class="system_image_div">
+        <img class="system_image" src=<%= @system.image %>><br>
+    </div>
+</div>
 

@@ -434,3 +434,23 @@ a {
 .motto {
   text-align: center;
 }
+
+.system_image{
+  height: 415px;
+  width: 450px;
+}
+
+.system_games {
+  flex: 50%;
+  padding: 5px;
+}
+
+.system_image_div{
+  flex: 50%;
+  // padding: 5px;
+}
+
+
+.system_attributes {
+  display: flex; 
+}
