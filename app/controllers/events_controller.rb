@@ -28,6 +28,8 @@ class EventsController < ApplicationController
         if @event.valid?
             if @event.host_id == 1 
                @event.host_id = current_user.id 
+            elsif @event.host_id == 0
+                @event.host_id = nil 
             end 
             @event.save 
             user_event = UserEvent.create(user_id: current_user.id, event_id: @event.id)
