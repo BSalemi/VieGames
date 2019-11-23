@@ -23,14 +23,14 @@
     <% end %>
 <% end %></br></br>
 
-<% if current_user.games.find{|game| game.id == @game.id} %>
-    <div class="collect_game"><h6><%= link_to "Remove #{@game.title} from Your Collection", delete_game_path(@game) %></h6></div><br>
-<% else %>   
+<% if !(current_user.games.find{|game| game.id == @game.id}) %>
     <div class="collect_game"><h6><%= link_to "Add #{@game.title} to Your Collection", add_game_path(@game) %> <br>
-<% end %></h6></div> <br> <br>
+<% end %></h6></div><br><br>
 
 <div class="upcoming_event"><h6><%= link_to "Upcoming Events for #{@game.title}", game_events_path(@game)%></h6></div> <br><br>
 
 <% if current_user.games.find{|game| game.id == @game.id} %>
-    <div class="create_event"><h6><%= link_to "Create an Event for #{@game.title}", new_game_event_path(@game)%></h6></div>
+    <div class="create_event"><h6><%= link_to "Create an Event for #{@game.title}", new_game_event_path(@game)%></h6></div><br><br>
+
+    <div class="collect_game"><h6><%= link_to "Remove #{@game.title} from Your Collection", delete_game_path(@game) %></h6></div><br>
 <% end %>
