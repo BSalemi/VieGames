@@ -2,6 +2,8 @@
 
 [Blog Post](https://bsalemi.github.io/rails_portfolio_project_and_using_scope_methods)
 
+http://vie-games.herokuapp.com/
+
 ## Installation 
 
 After cloning the repo, install the dependencies by executing the below command in your terminal:
